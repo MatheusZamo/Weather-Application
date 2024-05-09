@@ -32,8 +32,8 @@ const handleSubmit = event => {
 
     const inputValue = event.target.city.value
 
-    showCityCard()
     showCityWeatherInfo(inputValue)
+    showCityCard()
     cityForm.reset()
 }
 
