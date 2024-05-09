@@ -1,5 +1,18 @@
 # Weather-Application
-Aplicação faz o uso da API AccuWeather
+<h1>Aplicação de Previsão do Tempo</h1>
+Esta aplicação web permite aos usuários ver a previsão do tempo de uma cidade selecionada. Ela consome a API da AccuWeather para obter os dados meteorológicos atualizados. A aplicação foi desenvolvida usando JavaScript puro, HTML e CSS.
+
+<h2>Funcionalidades</h2>
+- Pesquisar uma cidade por nome para ver a previsão do tempo atual.<br>
+- Exibir a temperatura atual, e condição climática atual. <br>
+- Exibir um ícone correspondente à condição climática atual.<br>
+- Responsiva, se adapta a diferentes tamanhos de tela.<br>
+<h2>Tecnologias Utilizadas</h2>
+- JavaScript<br>
+- HTML<br>
+- CSS<br>
+<h2>API Utilizada</h2>
+AccuWeather API: Uma API de previsão do tempo que fornece dados precisos e atualizados.
 
 
 
