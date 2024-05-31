@@ -10,11 +10,18 @@ const showCityCard = () => {
     if(cityCard.classList.contains('d-none')){
         cityCard.classList.remove('d-none')
     }
+}   
+
+const fetchCityWeatherInfo = async cityName => {
+    const [{ Key, LocalizedName }] = await getCityData(cityName)
+    const [{ WeatherText, Temperature, IsDayTime, WeatherIcon }] = await getCityWeather(Key)
+
+    return { LocalizedName, WeatherText, Temperature, IsDayTime, WeatherIcon }
 }
 
 const showCityWeatherInfo = async cityName => {
-    const [{ Key, LocalizedName }] = await getCityData(cityName)
-    const [{ WeatherText, Temperature, IsDayTime, WeatherIcon}] = await getCityWeather(Key)
+    const { LocalizedName, WeatherText, Temperature, IsDayTime, WeatherIcon } =
+      await fetchCityWeatherInfo(cityName)
     const img = `<img src = ./src/icons/${WeatherIcon}.svg>`
    
     cityImg.src = IsDayTime 
@@ -37,7 +44,7 @@ const showLocalStorageCity = () => {
  }
 }
 
-cityForm.addEventListener('submit', event => {
+const handleCityForm =  event => {
     event.preventDefault()
 
     const inputValue = event.target.city.value
@@ -45,7 +52,9 @@ cityForm.addEventListener('submit', event => {
     showCityWeatherInfo(inputValue)
     localStorage.setItem('city',inputValue)
     cityForm.reset()
-})
+}
+
+cityForm.addEventListener('submit', handleCityForm)
 
 showLocalStorageCity()
 
